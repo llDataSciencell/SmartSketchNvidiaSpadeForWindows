@@ -1,3 +1,45 @@
+# SmartSketcNvidiaSpadeForWindows
+
+This source code is the modification of SmartSketch(https://github.com/noyoshi/smart-sketch), which is really cool tool for testing NVIDIA's SPADE.
+SPADE is image generating tool from raw sketch into realistic image.
+I am accepting advices from viewers.
+If you have any comment or pull request, please notice me.
+
+# Installation
+This is the example of installation in my env. Please modify the details of installation process for your own env.  
+
+```
+conda create -n nvidia_spade python=3.5.6
+conda activate nvidia_spade
+conda install git
+
+cd C:\
+mkdir GithubClone
+cd GithubClone
+```
+```
+git clone https://github.com/NVlabs/SPADE
+cd SPADE
+conda install -c pytorch pytorch
+pip install -r requirements.txt
+```
+
+```
+mkdir checkpoints
+cd checkpoints
+```
+then, copy checkpoints.tar.gz in checkpoints and extract it inside the directory.
+```
+tar xvf checkpoints.tar.gz
+cd ../
+```
+
+test the script on terminal (This process's purpose is not visualizing on Browser) 
+```
+python test.py --name coco_pretrained --dataset_mode coco --dataroot C:\GithubClone\SPADE\datasets\coco_stuff
+```
+
+
 # SmartSketch
 
 ## Supercharge your creativity with state of the art image synthesis
