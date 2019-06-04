@@ -60,10 +60,11 @@ def run_model(filename):
     # TODO figure out how to not do this from the command line...
     return run(verbose=verbose)
 
-
+import os
 def copy_file(old="avon.png", new="avon.png"):
-    command_string = "cp " + old + " " + new
-    subprocess.check_output(command_string.split(" "))
+    command_string = "copy "+ os.getcwd()+"\\" + old.replace("/","\\") + " " + os.getcwd()+"\\"+new.replace("/","\\")
+    print(command_string)
+    subprocess.check_output(command_string.split(" "),shell=True)
 
 
 def make_processable(greyscale_fname, output_color_file):
@@ -121,7 +122,10 @@ class UploadHandler(tornado.web.RequestHandler):
         static_image_location = parse_static_filepath(export_image_location)
         if verbose:
             print(static_image_location)
-
+        
+        import pathlib
+        abs_path=pathlib.Path(static_image_location)
+        static_image_location = str(abs_path.relative_to(abs_path.cwd()))
         self.write({
             "result": "success",
             "location": static_image_location
