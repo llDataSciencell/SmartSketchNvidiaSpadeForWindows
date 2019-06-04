@@ -39,7 +39,21 @@ test the script on terminal (This process's purpose is not visualizing on Browse
 python test.py --name coco_pretrained --dataset_mode coco --dataroot C:\GithubClone\SPADE\datasets\coco_stuff
 ```
 
+### Launch the server and test on browser
 
+type this script on your root dir of this source code.
+```
+python server.py
+```
+
+type path on your browser like Google Chrome ,Microsoft Edge, or Firefox.
+```
+localhost
+``` 
+or
+```
+http://localhost
+```
 # SmartSketch
 
 ## Supercharge your creativity with state of the art image synthesis
